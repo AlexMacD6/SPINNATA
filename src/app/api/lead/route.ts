@@ -59,46 +59,20 @@ setInterval(() => {
 function getClientIp(req: NextRequest): string {
   const forwarded = req.headers.get("x-forwarded-for");
   const realIp = req.headers.get("x-real-ip");
-  
+
   if (forwarded) {
     return forwarded.split(",")[0].trim();
   }
-  
+
   if (realIp) {
     return realIp.trim();
   }
-  
+
   return "unknown";
 }
 
 function stripHtml(text: string): string {
   return text.replace(/<[^>]*>/g, "");
-}
-
-async function addToMailchimp(email: string) {
-  if (!process.env.MAILCHIMP_API_KEY || !process.env.MAILCHIMP_AUDIENCE_ID) {
-    return;
-  }
-
-  try {
-    const mailchimp = await import("@mailchimp/mailchimp_marketing");
-    
-    mailchimp.default.setConfig({
-      apiKey: process.env.MAILCHIMP_API_KEY,
-      server: process.env.MAILCHIMP_SERVER_PREFIX || "us1",
-    });
-
-    await mailchimp.default.lists.addListMember(
-      process.env.MAILCHIMP_AUDIENCE_ID,
-      {
-        email_address: email,
-        status: "pending", // Double opt-in
-      }
-    );
-  } catch (error) {
-    console.error("Mailchimp error:", error);
-    // Don't throw - this is optional
-  }
 }
 
 async function sendNotificationEmail(email: string, leadData: any) {
@@ -191,15 +165,12 @@ export async function POST(req: NextRequest) {
     });
 
     // Optional integrations (fire and forget)
-    Promise.all([
-      addToMailchimp(cleanEmail),
-      sendNotificationEmail(cleanEmail, {
-        source,
-        campaign,
-        ua: cleanUa,
-        ip: clientIp,
-      }),
-    ]).catch((err) => {
+    sendNotificationEmail(cleanEmail, {
+      source,
+      campaign,
+      ua: cleanUa,
+      ip: clientIp,
+    }).catch((err) => {
       console.error("Integration error:", err);
     });
 
@@ -212,5 +183,3 @@ export async function POST(req: NextRequest) {
     );
   }
 }
-
-

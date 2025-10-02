@@ -15,7 +15,6 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",
-    "@mailchimp/mailchimp_marketing": "^3.0.80",
     "@prisma/client": "^5.9.1",
     "@radix-ui/react-label": "^2.0.2",
     "@radix-ui/react-slot": "^1.0.2",
