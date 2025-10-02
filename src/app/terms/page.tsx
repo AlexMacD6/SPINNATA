@@ -68,7 +68,7 @@ export default function TermsPage() {
           <section>
             <h2 className="text-2xl font-semibold mb-4">Contact</h2>
             <p className="text-muted-foreground">
-              For questions about these terms, please contact us at legal@spin-ñata.com.
+              For questions about these terms, please contact us at support@treasurehub.club.
             </p>
           </section>
 

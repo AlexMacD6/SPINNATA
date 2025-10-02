@@ -106,7 +106,7 @@ export function EmailForm() {
           <Input
             id="email"
             type="email"
-            placeholder="mom@email.com"
+            placeholder="your@email.com"
             aria-label="Email address"
             aria-invalid={errors.email ? "true" : "false"}
             aria-describedby={errors.email ? "email-error" : undefined}

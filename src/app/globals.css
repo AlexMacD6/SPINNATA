@@ -130,6 +130,47 @@
   }
 }
 
+@keyframes pumpkin-spin {
+  0% {
+    transform: translateY(0) rotateY(0deg);
+  }
+  20% {
+    transform: translateY(-10px) rotateY(0deg);
+  }
+  30% {
+    transform: translateY(-10px) rotateY(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotateY(1080deg);
+  }
+  70% {
+    transform: translateY(-10px) rotateY(1080deg) scale(1.1);
+  }
+  80% {
+    transform: translateY(-10px) rotateY(1080deg) scale(1);
+  }
+  100% {
+    transform: translateY(0) rotateY(1080deg);
+  }
+}
+
+@keyframes candy-burst {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) scale(0);
+  }
+  50% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: var(--end-position) scale(0.5);
+  }
+}
+
 .animate-float {
   animation: float 3s ease-in-out infinite;
 }
@@ -147,6 +188,68 @@
   );
   background-size: 200% 100%;
   animation: shimmer 2s infinite;
+}
+
+.animate-pumpkin-spin {
+  animation: pumpkin-spin 7s ease-in-out 2;
+  display: inline-block;
+  transform-origin: center;
+  animation-fill-mode: forwards;
+}
+
+.candy-burst-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.candy-particle {
+  position: absolute;
+  font-size: 1.2rem;
+  animation: candy-burst 2s ease-out 2;
+  animation-delay: 3.5s;
+  animation-fill-mode: forwards;
+}
+
+.candy-particle:nth-child(1) {
+  --end-position: translate(-40px, -40px);
+}
+
+.candy-particle:nth-child(2) {
+  --end-position: translate(40px, -40px);
+  animation-delay: 3.55s;
+}
+
+.candy-particle:nth-child(3) {
+  --end-position: translate(-40px, 40px);
+  animation-delay: 3.6s;
+}
+
+.candy-particle:nth-child(4) {
+  --end-position: translate(40px, 40px);
+  animation-delay: 3.65s;
+}
+
+.candy-particle:nth-child(5) {
+  --end-position: translate(0px, -50px);
+  animation-delay: 3.7s;
+}
+
+.candy-particle:nth-child(6) {
+  --end-position: translate(0px, 50px);
+  animation-delay: 3.75s;
+}
+
+.candy-particle:nth-child(7) {
+  --end-position: translate(-50px, 0px);
+  animation-delay: 3.8s;
+}
+
+.candy-particle:nth-child(8) {
+  --end-position: translate(50px, 0px);
+  animation-delay: 3.85s;
 }
 
 /* Smooth scroll behavior */
