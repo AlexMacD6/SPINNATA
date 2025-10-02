@@ -113,9 +113,6 @@ export default function Home() {
                         <h2 className="text-2xl font-bold mb-2">
                           Be First to Get Yours! 🎉
                         </h2>
-                        <p className="text-gray-600">
-                          Join 500+ smart moms who are already on the list
-                        </p>
                       </div>
                       <EmailForm />
                       <p className="text-sm text-gray-500 mt-4">
@@ -329,8 +326,40 @@ export default function Home() {
               </div>
             </ScaleIn>
 
-            <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
+            <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
               <AnimatedSection delay={0.1}>
+                <Card className="glass border-2 border-blue-200 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 h-full">
+                  <CardHeader className="text-center pb-4">
+                    <CardTitle className="text-3xl mb-2">Rent It!</CardTitle>
+                    <div className="text-5xl font-bold gradient-text mb-2">
+                      $50
+                    </div>
+                    <p className="text-gray-600">Per Day Rental + Candy</p>
+                  </CardHeader>
+                  <CardContent>
+                    <ul className="space-y-3 text-gray-600">
+                      <li className="flex items-center gap-2">
+                        <Sparkles className="w-5 h-5 text-blue-500" />
+                        Perfect for one party
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <Sparkles className="w-5 h-5 text-blue-500" />
+                        Includes candy for 20 kids
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <Sparkles className="w-5 h-5 text-blue-500" />
+                        No commitment needed
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <Sparkles className="w-5 h-5 text-blue-500" />
+                        Try before you buy
+                      </li>
+                    </ul>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
+
+              <AnimatedSection delay={0.15}>
                 <Card className="glass border-2 border-pumpkin-200 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 h-full">
                   <CardHeader className="text-center pb-4">
                     <CardTitle className="text-3xl mb-2">SPIN-ÑATA</CardTitle>
