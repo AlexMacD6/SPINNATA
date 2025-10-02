@@ -22,3 +22,4 @@ model Lead {
   @@index([createdAt])
 }
 
+

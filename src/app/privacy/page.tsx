@@ -1,8 +1,8 @@
 import Link from "next/link";
 
 export const metadata = {
-  title: "Privacy Policy - Spinnata",
-  description: "Privacy policy for Spinnata waitlist",
+  title: "Privacy Policy - SPIN-ÑATA",
+  description: "Privacy policy for SPIN-ÑATA waitlist",
 };
 
 export default function PrivacyPage() {
@@ -12,7 +12,7 @@ export default function PrivacyPage() {
         <div className="container flex h-16 items-center">
           <Link href="/" className="flex items-center gap-2">
             <span className="text-3xl">🎃</span>
-            <span className="text-2xl font-bold text-pumpkin">Spinnata</span>
+            <span className="text-2xl font-bold text-pumpkin">SPIN-ÑATA</span>
           </Link>
         </div>
       </header>
@@ -33,10 +33,10 @@ export default function PrivacyPage() {
           <section>
             <h2 className="text-2xl font-semibold mb-4">How We Use Your Information</h2>
             <p className="text-muted-foreground">
-              We use your email address solely to notify you when Spinnata launches and 
+              We use your email address solely to notify you when SPIN-ÑATA launches and 
               to send you updates about the product. We will never sell your information 
               to third parties or use it for any purpose other than communicating with you 
-              about Spinnata.
+              about SPIN-ÑATA.
             </p>
           </section>
 
@@ -62,7 +62,7 @@ export default function PrivacyPage() {
             <h2 className="text-2xl font-semibold mb-4">Contact Us</h2>
             <p className="text-muted-foreground">
               If you have any questions about this Privacy Policy, please contact us at 
-              privacy@spinnata.com.
+              privacy@spin-ñata.com.
             </p>
           </section>
 

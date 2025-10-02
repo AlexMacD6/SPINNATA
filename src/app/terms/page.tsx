@@ -1,8 +1,8 @@
 import Link from "next/link";
 
 export const metadata = {
-  title: "Terms of Service - Spinnata",
-  description: "Terms of service for Spinnata waitlist",
+  title: "Terms of Service - SPIN-ÑATA",
+  description: "Terms of service for SPIN-ÑATA waitlist",
 };
 
 export default function TermsPage() {
@@ -12,7 +12,7 @@ export default function TermsPage() {
         <div className="container flex h-16 items-center">
           <Link href="/" className="flex items-center gap-2">
             <span className="text-3xl">🎃</span>
-            <span className="text-2xl font-bold text-pumpkin">Spinnata</span>
+            <span className="text-2xl font-bold text-pumpkin">SPIN-ÑATA</span>
           </Link>
         </div>
       </header>
@@ -24,7 +24,7 @@ export default function TermsPage() {
           <section>
             <h2 className="text-2xl font-semibold mb-4">Waitlist Terms</h2>
             <p className="text-muted-foreground">
-              By joining the Spinnata waitlist, you agree to receive email communications 
+              By joining the SPIN-ÑATA waitlist, you agree to receive email communications 
               from us about our product launch and updates. Your spot on the waitlist does 
               not constitute a binding commitment to purchase.
             </p>
@@ -33,8 +33,8 @@ export default function TermsPage() {
           <section>
             <h2 className="text-2xl font-semibold mb-4">Intellectual Property</h2>
             <p className="text-muted-foreground">
-              All content, designs, logos, and materials related to Spinnata are the 
-              intellectual property of Spinnata and are protected by copyright and 
+              All content, designs, logos, and materials related to SPIN-ÑATA are the 
+              intellectual property of SPIN-ÑATA and are protected by copyright and 
               trademark laws.
             </p>
           </section>
@@ -51,7 +51,7 @@ export default function TermsPage() {
           <section>
             <h2 className="text-2xl font-semibold mb-4">Limitation of Liability</h2>
             <p className="text-muted-foreground">
-              Spinnata provides this waitlist service "as is" without any warranties. 
+              SPIN-ÑATA provides this waitlist service "as is" without any warranties. 
               We are not liable for any damages arising from your use of this website 
               or participation in the waitlist.
             </p>
@@ -68,7 +68,7 @@ export default function TermsPage() {
           <section>
             <h2 className="text-2xl font-semibold mb-4">Contact</h2>
             <p className="text-muted-foreground">
-              For questions about these terms, please contact us at legal@spinnata.com.
+              For questions about these terms, please contact us at legal@spin-ñata.com.
             </p>
           </section>
 

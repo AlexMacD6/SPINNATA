@@ -45,7 +45,9 @@ export function EmailForm() {
           email: data.email,
           company: data.company,
           source: new URLSearchParams(window.location.search).get("utm_source"),
-          campaign: new URLSearchParams(window.location.search).get("utm_campaign"),
+          campaign: new URLSearchParams(window.location.search).get(
+            "utm_campaign"
+          ),
         }),
       });
 
@@ -65,7 +67,7 @@ export function EmailForm() {
       // Success!
       setIsSuccess(true);
       reset();
-      
+
       // Dispatch analytics event
       window.dispatchEvent(
         new CustomEvent("lead:submitted", {
@@ -75,8 +77,8 @@ export function EmailForm() {
 
       toast({
         variant: "success",
-        title: "You're on the list! 🎉",
-        description: "We'll email you when we launch (no spam).",
+        title: "Welcome to the family! 🎉",
+        description: "Check your inbox soon for exclusive early-bird perks!",
       });
     } catch (error) {
       toast({
@@ -100,17 +102,17 @@ export function EmailForm() {
         <Label htmlFor="email" className="sr-only">
           Email address
         </Label>
-        <div className="flex flex-col sm:flex-row gap-2">
+        <div className="flex flex-col sm:flex-row gap-3">
           <Input
             id="email"
             type="email"
-            placeholder="your@email.com"
+            placeholder="mom@email.com"
             aria-label="Email address"
             aria-invalid={errors.email ? "true" : "false"}
             aria-describedby={errors.email ? "email-error" : undefined}
-            className={`flex-1 ${
+            className={`flex-1 h-14 text-lg bg-white/80 border-2 ${
               isSuccess
-                ? "border-stemGreen focus-visible:ring-stemGreen"
+                ? "border-stemGreen-500 focus-visible:ring-stemGreen-500"
                 : ""
             }`}
             disabled={isSubmitting}
@@ -118,26 +120,22 @@ export function EmailForm() {
           />
           <Button
             type="submit"
-            size="lg"
-            disabled={isSubmitting}
-            className="sm:w-auto w-full"
+            disabled={isSubmitting || isSuccess}
+            className="h-14 px-8 bg-gradient-to-r from-pumpkin-500 to-orange-500 hover:from-pumpkin-600 hover:to-orange-600 text-white font-bold text-lg shadow-xl hover:shadow-2xl hover:scale-105 transition-all sm:w-auto w-full"
           >
             {isSubmitting ? (
               <>
-                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                Joining...
+                <Loader2 className="mr-2 h-5 w-5 animate-spin" />✨ Joining...
               </>
+            ) : isSuccess ? (
+              "🎉 You're in!"
             ) : (
-              "Join the waitlist"
+              "Get Early Access"
             )}
           </Button>
         </div>
         {errors.email && (
-          <p
-            id="email-error"
-            className="text-sm text-destructive"
-            role="alert"
-          >
+          <p id="email-error" className="text-sm text-destructive" role="alert">
             {errors.email.message}
           </p>
         )}
@@ -159,4 +157,3 @@ export function EmailForm() {
     </form>
   );
 }
-

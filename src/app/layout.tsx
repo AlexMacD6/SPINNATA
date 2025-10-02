@@ -7,32 +7,32 @@ import { Analytics } from "@vercel/analytics/react";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Spinnata — Make your party unforgettable",
+  title: "SPIN-ÑATA — Make your party unforgettable",
   description:
     "A new twist on the classic piñata. Spin it. Unwrap it. Candy everywhere. Join the waitlist.",
   keywords: ["piñata", "party", "candy", "spin", "Houston", "celebration"],
-  authors: [{ name: "Spinnata" }],
-  creator: "Spinnata",
+  authors: [{ name: "SPIN-ÑATA" }],
+  creator: "SPIN-ÑATA",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://spinnata.com",
-    title: "Spinnata — Make your party unforgettable",
+    title: "SPIN-ÑATA — Make your party unforgettable",
     description:
       "A new twist on the classic piñata. Spin it. Unwrap it. Candy everywhere. Join the waitlist.",
-    siteName: "Spinnata",
+    siteName: "SPIN-ÑATA",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Spinnata - The next generation piñata",
+        alt: "SPIN-ÑATA - The next generation piñata",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Spinnata — Make your party unforgettable",
+    title: "SPIN-ÑATA — Make your party unforgettable",
     description:
       "A new twist on the classic piñata. Spin it. Unwrap it. Candy everywhere.",
     images: ["/og-image.jpg"],

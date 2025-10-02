@@ -1,28 +1,53 @@
 import { EmailForm } from "@/components/email-form";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Sparkles, Gift, Zap } from "lucide-react";
+import { Scene3D } from "@/components/3d-scene-wrapper";
+import {
+  AnimatedSection,
+  FadeIn,
+  ScaleIn,
+} from "@/components/animated-section";
+import {
+  Sparkles,
+  Heart,
+  Shield,
+  Smile,
+  PartyPopper,
+  Clock,
+  Star,
+} from "lucide-react";
 import Link from "next/link";
+import { ScrollToTopButton } from "@/components/scroll-to-top-button";
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen relative overflow-hidden">
       {/* Header */}
-      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container flex h-16 items-center justify-between">
-          <div className="flex items-center gap-2">
-            <span className="text-3xl">🎃</span>
-            <span className="text-2xl font-bold text-pumpkin">Spinnata</span>
-          </div>
-          <nav className="hidden md:flex gap-6">
+      <header className="fixed top-0 left-0 right-0 z-50 glass border-b border-white/20">
+        <div className="container flex h-20 items-center justify-between px-6">
+          <FadeIn>
+            <div className="flex items-center gap-3">
+              <span className="text-4xl animate-float">🎃</span>
+              <span className="text-3xl font-bold gradient-text">
+                SPIN-ÑATA
+              </span>
+            </div>
+          </FadeIn>
+          <nav className="hidden md:flex gap-8">
             <a
-              href="#features"
-              className="text-sm font-medium transition-colors hover:text-pumpkin"
+              href="#how-it-works"
+              className="text-sm font-medium transition-all hover:text-pumpkin-500 hover:scale-105"
             >
               How it works
             </a>
             <a
+              href="#features"
+              className="text-sm font-medium transition-all hover:text-pumpkin-500 hover:scale-105"
+            >
+              Why Moms Love It
+            </a>
+            <a
               href="#faq"
-              className="text-sm font-medium transition-colors hover:text-pumpkin"
+              className="text-sm font-medium transition-all hover:text-pumpkin-500 hover:scale-105"
             >
               FAQ
             </a>
@@ -30,211 +55,427 @@ export default function Home() {
         </div>
       </header>
 
+      {/* Hero Section with 3D Background */}
       <main className="flex-1">
-        {/* Hero Section */}
-        <section className="relative overflow-hidden border-b">
-          <div className="absolute inset-0 bg-gradient-to-br from-pumpkin-50 via-background to-stemGreen-50 dark:from-pumpkin-950 dark:via-background dark:to-stemGreen-950 opacity-50" />
-          <div className="container relative px-4 py-16 md:py-24 lg:py-32">
-            <div className="mx-auto flex max-w-5xl flex-col items-center gap-8 text-center">
-              <div className="space-y-4 animate-fade-in-up">
-                <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl text-balance">
-                  Make your party{" "}
-                  <span className="text-pumpkin">unforgettable.</span>
+        <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+          {/* 3D Scene Background */}
+          <Scene3D />
+
+          {/* Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/80 pointer-events-none" />
+
+          <div className="container px-4 relative z-10">
+            <div className="max-w-5xl mx-auto text-center">
+              <AnimatedSection>
+                <div className="inline-flex items-center gap-2 glass px-6 py-3 rounded-full mb-8 animate-pulse-glow">
+                  <Sparkles className="w-5 h-5 text-pumpkin-500" />
+                  <span className="text-sm font-medium">
+                    The Future of Party Fun is Here
+                  </span>
+                  <Sparkles className="w-5 h-5 text-pumpkin-500" />
+                </div>
+              </AnimatedSection>
+
+              <AnimatedSection delay={0.2}>
+                <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight mb-6">
+                  Make Every Birthday{" "}
+                  <span className="gradient-text block mt-2">
+                    Unforgettable
+                  </span>
                 </h1>
-                <p className="mx-auto max-w-[700px] text-lg text-muted-foreground md:text-xl text-balance">
-                  Be first to get the Spin-ñata—drop your email below.
+              </AnimatedSection>
+
+              <AnimatedSection delay={0.4}>
+                <p className="text-xl md:text-2xl text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed">
+                  No mess. No fuss. Just <strong>pure joy</strong>. The
+                  SPIN-ÑATA brings all the excitement of a traditional piñata
+                  with
+                  <span className="text-pumpkin-500 font-semibold">
+                    {" "}
+                    zero cleanup stress
+                  </span>
+                  .
+                </p>
+              </AnimatedSection>
+
+              <AnimatedSection delay={0.6}>
+                <div className="glass max-w-2xl mx-auto p-8 rounded-3xl shadow-2xl">
+                  <div className="mb-6">
+                    <h2 className="text-2xl font-bold mb-2">
+                      Be First to Get Yours! 🎉
+                    </h2>
+                    <p className="text-gray-600">
+                      Join 500+ smart moms who are already on the list
+                    </p>
+                  </div>
+                  <EmailForm />
+                  <p className="text-sm text-gray-500 mt-4">
+                    ✨ No spam—just launch updates. Unsubscribe anytime.
+                  </p>
+                </div>
+              </AnimatedSection>
+
+              <AnimatedSection delay={0.8}>
+                <div className="mt-12 flex flex-wrap justify-center gap-8 text-sm text-gray-600">
+                  <div className="flex items-center gap-2">
+                    <Shield className="w-5 h-5 text-green-500" />
+                    <span>Kid-Safe Design</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Heart className="w-5 h-5 text-pink-500" />
+                    <span>Mom-Approved</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Sparkles className="w-5 h-5 text-yellow-500" />
+                    <span>Easy Cleanup</span>
+                  </div>
+                </div>
+              </AnimatedSection>
+            </div>
+          </div>
+
+          {/* Scroll Indicator */}
+          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+            <div className="w-6 h-10 rounded-full border-2 border-pumpkin-500 flex items-start justify-center p-2">
+              <div className="w-1.5 h-3 rounded-full bg-pumpkin-500 animate-pulse" />
+            </div>
+          </div>
+        </section>
+
+        {/* How It Works Video Section */}
+        <section id="how-it-works" className="py-24 relative">
+          <div className="container px-4">
+            <ScaleIn>
+              <div className="text-center mb-16">
+                <h2 className="text-5xl font-bold mb-4">
+                  Watch the <span className="gradient-text">Magic</span> Happen
+                </h2>
+                <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                  One spin. Endless smiles. See how easy party fun can be!
                 </p>
               </div>
+            </ScaleIn>
 
-              {/* Email Form */}
-              <div
-                className="w-full flex justify-center animate-fade-in-up"
-                style={{ animationDelay: "0.2s" }}
-              >
-                <EmailForm />
-              </div>
-
-              {/* Product Teaser Video */}
-              <div
-                className="w-full max-w-3xl mt-8 rounded-xl overflow-hidden shadow-2xl border animate-fade-in-up"
-                style={{ animationDelay: "0.4s" }}
-              >
-                <video
-                  className="w-full h-auto hidden sm:block"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                >
-                  <source src="/1002.mp4" type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-                <div className="sm:hidden aspect-video bg-gradient-to-br from-pumpkin-100 to-stemGreen-100 dark:from-pumpkin-900 dark:to-stemGreen-900 flex items-center justify-center">
-                  <span className="text-6xl">🎃</span>
+            <AnimatedSection delay={0.2}>
+              <div className="max-w-5xl mx-auto glass rounded-3xl overflow-hidden shadow-2xl">
+                <div className="aspect-video bg-gradient-to-br from-pumpkin-100 to-emerald-100 flex items-center justify-center relative">
+                  <video
+                    controls
+                    loop
+                    muted
+                    className="w-full h-full object-cover"
+                  >
+                    <source src="/1002.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
                 </div>
               </div>
-            </div>
+            </AnimatedSection>
           </div>
         </section>
 
-        {/* How It Works Section */}
-        <section id="features" className="container px-4 py-16 md:py-24">
-          <div className="mx-auto max-w-5xl space-y-12">
-            <div className="text-center space-y-4">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                How it works
-              </h2>
-              <p className="mx-auto max-w-[700px] text-muted-foreground md:text-lg">
-                Three simple steps to the most exciting party moment ever
-              </p>
+        {/* Features - Why Moms Love It */}
+        <section
+          id="features"
+          className="py-24 bg-gradient-to-b from-transparent to-white/50"
+        >
+          <div className="container px-4">
+            <ScaleIn>
+              <div className="text-center mb-16">
+                <h2 className="text-5xl font-bold mb-4">
+                  Why Moms <span className="gradient-text">Love It</span>
+                </h2>
+                <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                  Designed by parents, for parents. Because you deserve a
+                  stress-free party!
+                </p>
+              </div>
+            </ScaleIn>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+              <AnimatedSection delay={0.1}>
+                <Card className="glass border-none shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 h-full">
+                  <CardHeader>
+                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-pumpkin-400 to-pumpkin-600 flex items-center justify-center mb-4 animate-pulse-glow">
+                      <Clock className="w-8 h-8 text-white" />
+                    </div>
+                    <CardTitle className="text-2xl">5-Minute Setup</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-gray-600 leading-relaxed">
+                      Fill it, hang it, spin it—done! No complicated assembly.
+                      More time for cake, less time prepping. Perfect for busy
+                      moms!
+                    </p>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
+
+              <AnimatedSection delay={0.2}>
+                <Card className="glass border-none shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 h-full">
+                  <CardHeader>
+                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center mb-4 animate-pulse-glow">
+                      <Sparkles className="w-8 h-8 text-white" />
+                    </div>
+                    <CardTitle className="text-2xl">
+                      Zero Mess Cleanup
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-gray-600 leading-relaxed">
+                      Candy drops in a neat circle—no more crawling under
+                      tables! Controlled release means you can actually enjoy
+                      the party too.
+                    </p>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
+
+              <AnimatedSection delay={0.3}>
+                <Card className="glass border-none shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 h-full">
+                  <CardHeader>
+                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-pink-400 to-pink-600 flex items-center justify-center mb-4 animate-pulse-glow">
+                      <Shield className="w-8 h-8 text-white" />
+                    </div>
+                    <CardTitle className="text-2xl">100% Kid-Safe</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-gray-600 leading-relaxed">
+                      No sticks, no blindfolds, no injuries. Every child can
+                      participate safely. Peace of mind for you, fun for
+                      everyone!
+                    </p>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
             </div>
 
-            <div className="grid gap-6 md:grid-cols-3">
-              <Card className="border-2 hover:border-pumpkin transition-colors">
-                <CardHeader>
-                  <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-lg bg-pumpkin-100 dark:bg-pumpkin-900">
-                    <Zap className="h-6 w-6 text-pumpkin" />
+            {/* Additional Benefits */}
+            <AnimatedSection delay={0.4}>
+              <div className="mt-16 max-w-4xl mx-auto glass p-12 rounded-3xl">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-full bg-yellow-100 flex items-center justify-center flex-shrink-0">
+                      <Star className="w-6 h-6 text-yellow-600" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-lg mb-2">
+                        Reusable Design
+                      </h3>
+                      <p className="text-gray-600">
+                        Use it for multiple parties. Better for your wallet and
+                        the planet!
+                      </p>
+                    </div>
                   </div>
-                  <CardTitle>1. Spin</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">
-                    Give it a whirl! The Spin-ñata rotates smoothly, building
-                    anticipation with every turn.
-                  </p>
-                </CardContent>
-              </Card>
 
-              <Card className="border-2 hover:border-pumpkin transition-colors">
-                <CardHeader>
-                  <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-lg bg-pumpkin-100 dark:bg-pumpkin-900">
-                    <Gift className="h-6 w-6 text-pumpkin" />
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center flex-shrink-0">
+                      <PartyPopper className="w-6 h-6 text-purple-600" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-lg mb-2">
+                        Instagram-Worthy
+                      </h3>
+                      <p className="text-gray-600">
+                        Colorful, fun, and makes for amazing party photos and
+                        videos!
+                      </p>
+                    </div>
                   </div>
-                  <CardTitle>2. Unwrap</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">
-                    Watch as layers peel away in a mesmerizing display. No
-                    blindfolds or bats needed!
-                  </p>
-                </CardContent>
-              </Card>
 
-              <Card className="border-2 hover:border-pumpkin transition-colors">
-                <CardHeader>
-                  <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-lg bg-stemGreen-100 dark:bg-stemGreen-900">
-                    <Sparkles className="h-6 w-6 text-stemGreen" />
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
+                      <Smile className="w-6 h-6 text-blue-600" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-lg mb-2">
+                        All Ages Welcome
+                      </h3>
+                      <p className="text-gray-600">
+                        From toddlers to grandparents—everyone can join the fun!
+                      </p>
+                    </div>
                   </div>
-                  <CardTitle>3. Candy Burst</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">
-                    Boom! Candy flies everywhere in an epic finale. Safe,
-                    reusable, and totally Instagram-worthy.
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
+
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0">
+                      <Heart className="w-6 h-6 text-green-600" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-lg mb-2">
+                        Stress-Free Hosting
+                      </h3>
+                      <p className="text-gray-600">
+                        Finally, a party activity that doesn't add to your to-do
+                        list!
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </AnimatedSection>
           </div>
         </section>
 
-        {/* Social Proof Strip */}
-        <section className="border-y bg-muted/50">
-          <div className="container px-4 py-8">
-            <p className="text-center text-sm font-medium text-muted-foreground">
-              🤠 Houston-built • 🎉 Party-tested • ✨ Kid-approved
-            </p>
+        {/* Social Proof */}
+        <section className="py-16 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-r from-pumpkin-500 to-emerald-500 opacity-10" />
+          <div className="container px-4 relative z-10">
+            <AnimatedSection>
+              <div className="max-w-5xl mx-auto text-center">
+                <p className="text-sm uppercase tracking-wider text-gray-500 mb-6 font-semibold">
+                  Trusted by Modern Moms
+                </p>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+                  <div className="glass p-6 rounded-2xl">
+                    <div className="text-4xl font-bold gradient-text mb-2">
+                      500+
+                    </div>
+                    <p className="text-sm text-gray-600">Families Waiting</p>
+                  </div>
+                  <div className="glass p-6 rounded-2xl">
+                    <div className="text-4xl font-bold gradient-text mb-2">
+                      100%
+                    </div>
+                    <p className="text-sm text-gray-600">Kid-Safe</p>
+                  </div>
+                  <div className="glass p-6 rounded-2xl">
+                    <div className="text-4xl font-bold gradient-text mb-2">
+                      5min
+                    </div>
+                    <p className="text-sm text-gray-600">Setup Time</p>
+                  </div>
+                  <div className="glass p-6 rounded-2xl">
+                    <div className="text-4xl font-bold gradient-text mb-2">
+                      Zero
+                    </div>
+                    <p className="text-sm text-gray-600">Mess Cleanup</p>
+                  </div>
+                </div>
+              </div>
+            </AnimatedSection>
           </div>
         </section>
 
         {/* FAQ Section */}
-        <section id="faq" className="container px-4 py-16 md:py-24">
-          <div className="mx-auto max-w-3xl space-y-8">
-            <div className="text-center space-y-4">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">
-                Frequently Asked Questions
-              </h2>
-            </div>
+        <section id="faq" className="py-24">
+          <div className="container px-4">
+            <ScaleIn>
+              <div className="text-center mb-16">
+                <h2 className="text-5xl font-bold mb-4">
+                  Questions?{" "}
+                  <span className="gradient-text">We've Got Answers</span>
+                </h2>
+                <p className="text-xl text-gray-600">
+                  Everything you need to know about the SPIN-ÑATA
+                </p>
+              </div>
+            </ScaleIn>
 
-            <div className="space-y-6">
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-xl">
-                    Is it safe for kids?
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">
-                    Absolutely! Unlike traditional piñatas, there's no swinging
-                    bat or blindfold. Kids simply spin and watch the magic
-                    happen. Perfect for indoor or outdoor parties.
+            <div className="max-w-3xl mx-auto space-y-6">
+              <AnimatedSection delay={0.1}>
+                <div className="glass p-8 rounded-2xl">
+                  <h3 className="text-xl font-bold mb-3">How does it work?</h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    Simply fill the SPIN-ÑATA with candy and treats, hang it up,
+                    and let kids give it a spin! When it spins fast enough,
+                    treats release in a controlled way—no mess, all fun!
                   </p>
-                </CardContent>
-              </Card>
+                </div>
+              </AnimatedSection>
 
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-xl">Can I reuse it?</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">
-                    Yes! The Spin-ñata is designed to be refillable and
-                    reusable. Just reload with candy and you're ready for the
-                    next celebration. One investment, unlimited parties.
+              <AnimatedSection delay={0.2}>
+                <div className="glass p-8 rounded-2xl">
+                  <h3 className="text-xl font-bold mb-3">
+                    Is it safe for young children?
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    Absolutely! No sticks or blindfolds means no risk of
+                    injuries. It's designed for ages 3+ and even toddlers can
+                    safely participate with parent supervision.
                   </p>
-                </CardContent>
-              </Card>
+                </div>
+              </AnimatedSection>
 
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-xl">When can I buy one?</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">
-                    We're putting the finishing touches on production! Join the
-                    waitlist above and you'll be the first to know when we
-                    launch. Early subscribers get exclusive pricing.
+              <AnimatedSection delay={0.3}>
+                <div className="glass p-8 rounded-2xl">
+                  <h3 className="text-xl font-bold mb-3">Can I reuse it?</h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    Yes! The SPIN-ÑATA is built to last through multiple
+                    parties. Just refill and you're ready for the next
+                    celebration. Better value and better for the environment!
                   </p>
-                </CardContent>
-              </Card>
+                </div>
+              </AnimatedSection>
+
+              <AnimatedSection delay={0.4}>
+                <div className="glass p-8 rounded-2xl">
+                  <h3 className="text-xl font-bold mb-3">
+                    When will it be available?
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    We're launching soon! Join the waitlist above to be first in
+                    line and get exclusive early-bird pricing and special launch
+                    bonuses.
+                  </p>
+                </div>
+              </AnimatedSection>
             </div>
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="border-t bg-gradient-to-br from-pumpkin-50 to-stemGreen-50 dark:from-pumpkin-950 dark:to-stemGreen-950">
-          <div className="container px-4 py-16 md:py-24">
-            <div className="mx-auto max-w-2xl text-center space-y-8">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                Ready to revolutionize your parties?
-              </h2>
-              <EmailForm />
-            </div>
+        {/* Final CTA */}
+        <section className="py-24 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-pumpkin-500 via-orange-500 to-emerald-500 opacity-5" />
+          <div className="container px-4 relative z-10">
+            <ScaleIn>
+              <div className="max-w-4xl mx-auto text-center glass p-12 md:p-16 rounded-3xl">
+                <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                  Ready to Transform <br className="hidden sm:block" />
+                  <span className="gradient-text">Your Next Party?</span>
+                </h2>
+                <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+                  Join hundreds of smart moms who are saying goodbye to messy
+                  cleanups and hello to stress-free celebrations!
+                </p>
+                <div className="inline-flex flex-col items-center gap-4">
+                  <ScrollToTopButton className="px-12 py-4 bg-gradient-to-r from-pumpkin-500 to-orange-500 text-white font-bold text-lg rounded-full hover:scale-105 transition-transform shadow-2xl hover:shadow-pumpkin-500/50">
+                    Get Early Access Now
+                  </ScrollToTopButton>
+                  <p className="text-sm text-gray-500">
+                    🎁 First 100 get a special launch gift!
+                  </p>
+                </div>
+              </div>
+            </ScaleIn>
           </div>
         </section>
       </main>
 
       {/* Footer */}
-      <footer className="border-t">
-        <div className="container px-4 py-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="flex items-center gap-2">
-              <span className="text-2xl">🎃</span>
-              <span className="font-semibold">Spinnata</span>
+      <footer className="glass border-t border-white/20">
+        <div className="container px-4 py-12">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-8">
+            <div className="flex items-center gap-3">
+              <span className="text-3xl">🎃</span>
+              <span className="text-xl font-bold gradient-text">SPIN-ÑATA</span>
             </div>
-            <p className="text-sm text-muted-foreground">
-              © {new Date().getFullYear()} Spinnata. All rights reserved.
+            <p className="text-sm text-gray-500">
+              © {new Date().getFullYear()} SPIN-ÑATA. Making parties
+              unforgettable.
             </p>
-            <nav className="flex gap-6">
+            <nav className="flex gap-8">
               <Link
                 href="/privacy"
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                className="text-sm text-gray-600 hover:text-pumpkin-500 transition-colors"
               >
                 Privacy
               </Link>
               <Link
                 href="/terms"
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                className="text-sm text-gray-600 hover:text-pumpkin-500 transition-colors"
               >
                 Terms
               </Link>
