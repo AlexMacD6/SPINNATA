@@ -304,8 +304,8 @@ export default function Home() {
                         Stress-Free Hosting
                       </h3>
                       <p className="text-gray-600">
-                        Finally, a party activity that doesn't add to your to-do
-                        list!
+                        Finally, a party activity that doesn&apos;t add to your
+                        to-do list!
                       </p>
                     </div>
                   </div>
@@ -409,7 +409,7 @@ export default function Home() {
               <div className="text-center mb-16">
                 <h2 className="text-5xl font-bold mb-4">
                   Questions?{" "}
-                  <span className="gradient-text">We've Got Answers</span>
+                  <span className="gradient-text">We&apos;ve Got Answers</span>
                 </h2>
                 <p className="text-xl text-gray-600">
                   Everything you need to know about the SPIN-ÑATA
@@ -436,8 +436,8 @@ export default function Home() {
                   </h3>
                   <p className="text-gray-600 leading-relaxed">
                     Absolutely! No sticks or blindfolds means no risk of
-                    injuries. It's designed for ages 3+ and even toddlers can
-                    safely participate with parent supervision.
+                    injuries. It&apos;s designed for ages 3+ and even toddlers
+                    can safely participate with parent supervision.
                   </p>
                 </div>
               </AnimatedSection>
@@ -447,7 +447,7 @@ export default function Home() {
                   <h3 className="text-xl font-bold mb-3">Can I reuse it?</h3>
                   <p className="text-gray-600 leading-relaxed">
                     Yes! The SPIN-ÑATA is built to last through multiple
-                    parties. Just refill and you're ready for the next
+                    parties. Just refill and you&apos;re ready for the next
                     celebration. Better value and better for the environment!
                   </p>
                 </div>
@@ -459,9 +459,9 @@ export default function Home() {
                     When will it be available?
                   </h3>
                   <p className="text-gray-600 leading-relaxed">
-                    We're launching soon! Join the waitlist above to be first in
-                    line and get exclusive early-bird pricing and special launch
-                    bonuses.
+                    We&apos;re launching soon! Join the waitlist above to be
+                    first in line and get exclusive early-bird pricing and
+                    special launch bonuses.
                   </p>
                 </div>
               </AnimatedSection>
