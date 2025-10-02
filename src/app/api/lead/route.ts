@@ -4,7 +4,7 @@ import { prisma } from "@/lib/prisma";
 
 // Validation schema
 const leadSchema = z.object({
-  email: z.string().email().trim().toLowerCase(),
+  email: z.string().trim().toLowerCase().email(),
   company: z.string().optional(),
   source: z.string().optional(),
   campaign: z.string().optional(),
