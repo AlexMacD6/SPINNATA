@@ -1,0 +1,24 @@
+// Prisma schema for Spinnata lead collection
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Lead {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  createdAt DateTime @default(now())
+  source    String?  // utm_source or referrer
+  campaign  String?  // utm_campaign
+  ua        String?  // user-agent
+  ip        String?  // best-effort IP
+  
+  @@index([email])
+  @@index([createdAt])
+}
+
